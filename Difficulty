@@ -1,0 +1,31 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Difficulty : MonoBehaviour
+{
+    public int difficulty;
+    
+    private Button button;
+    private GameManager1 gameManager1;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        button = GetComponent<Button>();
+        gameManager1 = GameObject.Find("Game Manager1").GetComponent<GameManager1>();
+        button.onClick.AddListener(SetDifficulty);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void SetDifficulty()
+    {
+        Debug.Log(button.gameObject.name + "was clicked");
+        gameManager1.StartGame();
+        gameManager1.StartGame(difficulty);
+    }
+}
